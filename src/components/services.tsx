@@ -1,85 +1,67 @@
+import { useAnimation } from "@/hooks/use-animation";
 import { ArrowRight } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+
+const services = [
+  {
+    title: "Mobile Apps",
+    description:
+      "Native and cross-platform apps built for performance and scale, enabling seamless digital experiences on iOS and Android.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_mobile_apps_2.svg",
+    link: "https://streambe.com/en/mobile-apps/",
+  },
+  {
+    title: "Web Applications",
+    description:
+      "Modern, responsive web platforms with seamless UX, tailored to your business needs and optimized for performance and scalability.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_aplicaciones_mobile_web_2.svg",
+    link: "https://streambe.com/en/web-applications/",
+  },
+  {
+    title: "Staff Augmentation",
+    description:
+      "Top-tier developers integrated into your team, providing agility and expertise to scale your product development faster.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_staff_augmentation.svg",
+    link: "https://streambe.com/en/staff-augmentation-en/",
+  },
+  {
+    title: "Marketplace",
+    description:
+      "End-to-end marketplace platforms with secure transactions, helping businesses digitize sales and scale online presence.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home-marketplace.svg",
+    link: "https://streambe.com/en/marketplace-en/",
+  },
+  {
+    title: "Custom Software",
+    description:
+      "Tailored solutions that fit your unique business needs, from process automation to digital transformation.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_custom_software_2-1.svg",
+    link: "https://streambe.com/en/custom-software/",
+  },
+  {
+    title: "Business Intelligence",
+    description:
+      "Data-driven insights to power smarter decisions, with dashboards and analytics that turn information into action.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_business_intelligence_2.svg",
+    link: "https://streambe.com/en/business-intelligence-en/",
+  },
+  {
+    title: "IT Consulting",
+    description:
+      "Strategic guidance to align technology with business goals, ensuring innovation drives real impact.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_-consulting-IT_2.svg",
+    link: "https://streambe.com/en/it-consulting-en/",
+  },
+  {
+    title: "DevOps Solutions",
+    description:
+      "Automated, scalable infrastructure for rapid delivery, enabling continuous integration and deployment with full visibility.",
+    icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_devops_2.svg",
+    link: "https://streambe.com/en/devops-solutions/",
+  },
+];
 
 const OurServices = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, []);
-
-  const services = [
-    {
-      title: "Mobile Apps",
-      description:
-        "Native and cross-platform apps built for performance and scale, enabling seamless digital experiences on iOS and Android.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_mobile_apps_2.svg",
-      link: "https://streambe.com/en/mobile-apps/",
-    },
-    {
-      title: "Web Applications",
-      description:
-        "Modern, responsive web platforms with seamless UX, tailored to your business needs and optimized for performance and scalability.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_aplicaciones_mobile_web_2.svg",
-      link: "https://streambe.com/en/web-applications/",
-    },
-    {
-      title: "Staff Augmentation",
-      description:
-        "Top-tier developers integrated into your team, providing agility and expertise to scale your product development faster.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_staff_augmentation.svg",
-      link: "https://streambe.com/en/staff-augmentation-en/",
-    },
-    {
-      title: "Marketplace",
-      description:
-        "End-to-end marketplace platforms with secure transactions, helping businesses digitize sales and scale online presence.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home-marketplace.svg",
-      link: "https://streambe.com/en/marketplace-en/",
-    },
-    {
-      title: "Custom Software",
-      description:
-        "Tailored solutions that fit your unique business needs, from process automation to digital transformation.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_custom_software_2-1.svg",
-      link: "https://streambe.com/en/custom-software/",
-    },
-    {
-      title: "Business Intelligence",
-      description:
-        "Data-driven insights to power smarter decisions, with dashboards and analytics that turn information into action.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_business_intelligence_2.svg",
-      link: "https://streambe.com/en/business-intelligence-en/",
-    },
-    {
-      title: "IT Consulting",
-      description:
-        "Strategic guidance to align technology with business goals, ensuring innovation drives real impact.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_-consulting-IT_2.svg",
-      link: "https://streambe.com/en/it-consulting-en/",
-    },
-    {
-      title: "DevOps Solutions",
-      description:
-        "Automated, scalable infrastructure for rapid delivery, enabling continuous integration and deployment with full visibility.",
-      icon: "https://streambe.com/wp-content/uploads/2023/11/soluciones_home_devops_2.svg",
-      link: "https://streambe.com/en/devops-solutions/",
-    },
-  ];
+  const [ref, isVisible] = useAnimation();
 
   return (
     <section className="relative py-28 overflow-hidden bg-slate-900" ref={ref}>

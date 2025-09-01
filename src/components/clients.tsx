@@ -1,64 +1,45 @@
-import { useEffect, useRef, useState } from "react";
+import { useAnimation } from "@/hooks/use-animation";
+import { type RefObject } from "react";
+
+const clients = [
+  {
+    name: "BPN",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_bpn.png",
+  },
+  {
+    name: "SKF",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_skf.png",
+  },
+  {
+    name: "Navent",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_navent.png",
+  },
+  {
+    name: "Marval",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_marval.png",
+  },
+  {
+    name: "Andrómaco",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_andromaco.png",
+  },
+  {
+    name: "Walmart",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_walmart.png",
+  },
+  {
+    name: "Claro",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_claro.png",
+  },
+  {
+    name: "Santander",
+    logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_santander.png",
+  },
+];
 
 const TrustedBy = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target); // Run once
-        }
-      },
-      { threshold: 0.1 } // Trigger when 10% of the section is visible
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  const clients = [
-    {
-      name: "BPN",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_bpn.png",
-    },
-    {
-      name: "SKF",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_skf.png",
-    },
-    {
-      name: "Navent",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_navent.png",
-    },
-    {
-      name: "Marval",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_marval.png",
-    },
-    {
-      name: "Andrómaco",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_andromaco.png",
-    },
-    {
-      name: "Walmart",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_walmart.png",
-    },
-    {
-      name: "Claro",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_claro.png",
-    },
-    {
-      name: "Santander",
-      logo: "https://streambe.com/wp-content/uploads/2023/09/clientes-streambe_santander.png",
-    },
+  const [ref, isVisible] = useAnimation() as [
+    RefObject<HTMLDivElement>,
+    boolean
   ];
 
   return (

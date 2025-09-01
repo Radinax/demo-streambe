@@ -295,6 +295,22 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <div className="flex justify-center gap-1 font-semibold">
+          <p className="text-center text-white text-sm pb-4">
+            Made with ❤️ by Adrian Beria -
+          </p>
+          <p className="text-center text-white text-sm pb-4">
+            Check the repo{" "}
+            <a
+              href="https://github.com/Radinax/demo-streambe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-400 transition-colors duration-200 ease-in-out underline"
+            >
+              here
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

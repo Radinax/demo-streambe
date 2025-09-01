@@ -13,42 +13,41 @@ const locationIcon = new Icon({
   iconAnchor: [12, 41],
   popupAnchor: [0, -45],
 });
+// Coordinates: [latitude, longitude]
+const locations = [
+  {
+    city: "Buenos Aires",
+    country: "Argentina",
+    coords: [-34.6037, -65.3816],
+    description: "Regional HQ & Product Studio",
+  },
+  {
+    city: "Montevideo",
+    country: "Uruguay",
+    coords: [-32.9011, -55.1645],
+    description: "UX & Design Hub",
+  },
+  {
+    city: "Asunción",
+    country: "Paraguay",
+    coords: [-24.2637, -57.6657],
+    description: "Development Center",
+  },
+  {
+    city: "Madrid",
+    country: "Spain",
+    coords: [40.4168, -3.7038],
+    description: "European Gateway",
+  },
+  {
+    city: "Miami",
+    country: "USA",
+    coords: [40.7617, -100.1918],
+    description: "North American Operations",
+  },
+];
 
 const Locations = () => {
-  // Coordinates: [latitude, longitude]
-  const locations = [
-    {
-      city: "Buenos Aires",
-      country: "Argentina",
-      coords: [-34.6037, -65.3816],
-      description: "Regional HQ & Product Studio",
-    },
-    {
-      city: "Montevideo",
-      country: "Uruguay",
-      coords: [-32.9011, -55.1645],
-      description: "UX & Design Hub",
-    },
-    {
-      city: "Asunción",
-      country: "Paraguay",
-      coords: [-24.2637, -57.6657],
-      description: "Development Center",
-    },
-    {
-      city: "Madrid",
-      country: "Spain",
-      coords: [40.4168, -3.7038],
-      description: "European Gateway",
-    },
-    {
-      city: "Miami",
-      country: "USA",
-      coords: [40.7617, -100.1918],
-      description: "North American Operations",
-    },
-  ];
-
   const [mapReady, setMapReady] = useState(false);
 
   useEffect(() => {

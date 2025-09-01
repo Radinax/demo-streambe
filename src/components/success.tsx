@@ -1,104 +1,85 @@
+import { useAnimation } from "@/hooks/use-animation";
 import { ArrowRight } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+
+const cases = [
+  {
+    title: "Digital Transformation for BPN",
+    subtitle: "Development of digital channels for financial institutions",
+    client: "Banco de la Provincia de Neuquén - Argentina",
+    image:
+      "https://streambe.com/wp-content/uploads/2022/04/web_bpn_mock_up.png",
+    link: "https://streambe.com/bpn/",
+    tags: [
+      "Web Platform",
+      "Mobile App",
+      "UX Optimization",
+      "Agile Development",
+    ],
+    benefits: [
+      "Improved corporate image",
+      "Increased customer loyalty",
+      "Online appointment & loan requests",
+      "Simplified financial product selection",
+      "Optimized banking procedures",
+    ],
+    process: [
+      {
+        phase: "Discovery",
+        icon: "https://streambe.com/wp-content/uploads/2022/05/proceso-descubrir.gif",
+        desc: "Defined strategy based on user needs",
+      },
+      {
+        phase: "Get Ready",
+        icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-get-ready-1.gif",
+        desc: "High-fidelity wireframes & UX design",
+      },
+      {
+        phase: "Result",
+        icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-resultado.gif",
+        desc: "Tailor-made web & mobile platforms",
+      },
+    ],
+  },
+  {
+    title: "Business Intelligence for SKF",
+    subtitle: "Data-driven solutions for the industrial sector",
+    client: "SKF",
+    image: "https://streambe.com/wp-content/uploads/2023/03/skf_mockup_1a1.png",
+    link: "https://streambe.com/skf-en/",
+    tags: [
+      "BI Dashboard",
+      "Data Integration",
+      "Custom Analytics",
+      "12-Month Development",
+    ],
+    benefits: [
+      "Reorganized fragmented data",
+      "Unified reporting across departments",
+      "Improved production insights",
+      "Enhanced sales & administration visibility",
+    ],
+    process: [
+      {
+        phase: "Discovery",
+        icon: "https://streambe.com/wp-content/uploads/2022/05/proceso-descubrir.gif",
+        desc: "Mapped data across production, sales, admin",
+      },
+      {
+        phase: "Get Ready",
+        icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-get-ready-1.gif",
+        desc: "Built scalable data models & architecture",
+      },
+      {
+        phase: "Result",
+        icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-resultado.gif",
+        desc: "Custom BI platform with real-time dashboards",
+      },
+    ],
+  },
+];
 
 const SuccessStories = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, []);
-
-  const cases = [
-    {
-      title: "Digital Transformation for BPN",
-      subtitle: "Development of digital channels for financial institutions",
-      client: "Banco de la Provincia de Neuquén - Argentina",
-      image:
-        "https://streambe.com/wp-content/uploads/2022/04/web_bpn_mock_up.png",
-      link: "https://streambe.com/bpn/",
-      tags: [
-        "Web Platform",
-        "Mobile App",
-        "UX Optimization",
-        "Agile Development",
-      ],
-      benefits: [
-        "Improved corporate image",
-        "Increased customer loyalty",
-        "Online appointment & loan requests",
-        "Simplified financial product selection",
-        "Optimized banking procedures",
-      ],
-      process: [
-        {
-          phase: "Discovery",
-          icon: "https://streambe.com/wp-content/uploads/2022/05/proceso-descubrir.gif",
-          desc: "Defined strategy based on user needs",
-        },
-        {
-          phase: "Get Ready",
-          icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-get-ready-1.gif",
-          desc: "High-fidelity wireframes & UX design",
-        },
-        {
-          phase: "Result",
-          icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-resultado.gif",
-          desc: "Tailor-made web & mobile platforms",
-        },
-      ],
-    },
-    {
-      title: "Business Intelligence for SKF",
-      subtitle: "Data-driven solutions for the industrial sector",
-      client: "SKF",
-      image:
-        "https://streambe.com/wp-content/uploads/2023/03/skf_mockup_1a1.png",
-      link: "https://streambe.com/skf-en/",
-      tags: [
-        "BI Dashboard",
-        "Data Integration",
-        "Custom Analytics",
-        "12-Month Development",
-      ],
-      benefits: [
-        "Reorganized fragmented data",
-        "Unified reporting across departments",
-        "Improved production insights",
-        "Enhanced sales & administration visibility",
-      ],
-      process: [
-        {
-          phase: "Discovery",
-          icon: "https://streambe.com/wp-content/uploads/2022/05/proceso-descubrir.gif",
-          desc: "Mapped data across production, sales, admin",
-        },
-        {
-          phase: "Get Ready",
-          icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-get-ready-1.gif",
-          desc: "Built scalable data models & architecture",
-        },
-        {
-          phase: "Result",
-          icon: "https://streambe.com/wp-content/uploads/2022/03/proceso-resultado.gif",
-          desc: "Custom BI platform with real-time dashboards",
-        },
-      ],
-    },
-  ];
+  const [ref, isVisible] = useAnimation();
 
   return (
     <section className="relative py-28 overflow-hidden bg-slate-900" ref={ref}>

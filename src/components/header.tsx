@@ -1,6 +1,35 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, MessageCircle } from "lucide-react";
 
+const navItems = [
+  { label: "Home", href: "#home" },
+  {
+    label: "About",
+    dropdown: [
+      { name: "How We Work", href: "#how" },
+      { name: "The Team", href: "#team" },
+    ],
+  },
+  {
+    label: "Services",
+    dropdown: [
+      { name: "Mobile Apps", href: "#mobile" },
+      { name: "Web Applications", href: "#web" },
+      { name: "Staff Augmentation", href: "#staff" },
+      { name: "DevOps & Cloud", href: "#devops" },
+    ],
+  },
+  {
+    label: "Success",
+    dropdown: [
+      { name: "AESA", href: "#aesa" },
+      { name: "Navent", href: "#navent" },
+      { name: "SKF", href: "#skf" },
+    ],
+  },
+  { label: "Contact", href: "#contact" },
+];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,35 +39,6 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { label: "Home", href: "#home" },
-    {
-      label: "About",
-      dropdown: [
-        { name: "How We Work", href: "#how" },
-        { name: "The Team", href: "#team" },
-      ],
-    },
-    {
-      label: "Services",
-      dropdown: [
-        { name: "Mobile Apps", href: "#mobile" },
-        { name: "Web Applications", href: "#web" },
-        { name: "Staff Augmentation", href: "#staff" },
-        { name: "DevOps & Cloud", href: "#devops" },
-      ],
-    },
-    {
-      label: "Success",
-      dropdown: [
-        { name: "AESA", href: "#aesa" },
-        { name: "Navent", href: "#navent" },
-        { name: "SKF", href: "#skf" },
-      ],
-    },
-    { label: "Contact", href: "#contact" },
-  ];
 
   return (
     <header
